@@ -1,22 +1,22 @@
-import logo from './logo.svg';
+import {useEffect} from 'react'
+import { navigate } from '@reach/router'
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    const goto = () => navigate('https://www.cypress.io/');
+
+    const timer = setTimeout(goto, 5000);
+    return () => clearTimeout(timer);
+
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Redirect to cypress.io in 2 seconds...
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
